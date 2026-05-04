@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Housing Price Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <h1>🏠 Housing Price Predictor</h1>
+
+    <div class="card">
+
+        <div class="grid">
+
+            <div class="field">
+                <label>Longitude</label>
+                <input id="longitude" type="number">
+            </div>
+
+            <div class="field">
+                <label>Latitude</label>
+                <input id="latitude" type="number">
+            </div>
+
+            <div class="field">
+                <label>Median Age</label>
+                <input id="age" type="number">
+            </div>
+
+            <div class="field">
+                <label>Total Rooms</label>
+                <input id="rooms" type="number">
+            </div>
+
+            <div class="field">
+                <label>Total Bedrooms</label>
+                <input id="bedrooms" type="number">
+            </div>
+
+            <div class="field">
+                <label>Population</label>
+                <input id="population" type="number">
+            </div>
+
+            <div class="field">
+                <label>Households</label>
+                <input id="households" type="number">
+            </div>
+
+            <div class="field">
+                <label>Median Income</label>
+                <input id="income" type="number">
+            </div>
+
+            <div class="field full">
+                <label>Ocean Proximity</label>
+                <select id="ocean">
+                    <option>NEAR BAY</option>
+                    <option>INLAND</option>
+                    <option>ISLAND</option>
+                    <option>NEAR OCEAN</option>
+                    <option>&lt;1H OCEAN</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button onclick="predict()">Predict Price</button>
+
+        <div class="result-box">
+            <h2 id="result">Enter values and press predict</h2>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
