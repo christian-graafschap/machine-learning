@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+
+  api:
+    build: ./api
+    container_name: housing-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./model:/model
+      
+  web:
+    build: ./web
+    container_name: housing-web
+    ports:
+      - "3000:80"
+    depends_on:
+      - api

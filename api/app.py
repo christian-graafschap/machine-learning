@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from enum import Enum
 import joblib
 import pandas as pd
+import sys
 import os
 
 # -------------------------------------------------
@@ -21,7 +22,7 @@ app.add_middleware(
 # -------------------------------------------------
 # 2. Import (nodig voor joblib pickle restore)
 # -------------------------------------------------
-from api.features import column_ratio, ClusterSimilarity
+from features import column_ratio, ClusterSimilarity
 
 
 # -------------------------------------------------
@@ -53,10 +54,10 @@ class HousingInput(BaseModel):
 # -------------------------------------------------
 # 5. Model laden (complete pipeline)
 # -------------------------------------------------
-model_path = os.path.join(
-    os.path.dirname(__file__),
-    "../model/california_housing_model.pkl"
-)
+sys.path.append(os.path.dirname(__file__))
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "../model/california_housing_model.pkl")
 
 model = joblib.load(model_path)
 

@@ -5,9 +5,14 @@ End-to-End Machine Learning Project — California Housing Prices
 # ─────────────────────────────────────────────
 # 1. Imports
 # ─────────────────────────────────────────────
+import sys
+import os
 from pathlib import Path
 import tarfile
 import urllib.request
+
+# features.py staat in api/, zorg dat het altijd gevonden wordt
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "api"))
 
 import numpy as np
 import pandas as pd
@@ -22,8 +27,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from scipy.stats import randint
 
-# 👉 custom features (BELANGRIJK voor Docker + joblib)
-from api.features import column_ratio, ratio_name, ClusterSimilarity
+from features import column_ratio, ratio_name, ClusterSimilarity
 
 
 # ─────────────────────────────────────────────
